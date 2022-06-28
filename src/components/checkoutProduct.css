@@ -5,13 +5,12 @@
 
 .checkoutProduct__info {
   padding-left: 20px;
-  
 }
 
 .checkoutProduct__info > button {
   background: #f0c14b;
   border-radius: 2px;
-  width: 100%;
+  width: 140px;
   height: 30px;
   border: 1px solid;
   margin-top: 10px;
@@ -26,6 +25,7 @@
 }
 .checkoutProduct__rating {
   display: flex;
+  height: 13px;
 }
 .checkoutProduct__title {
   font-size: 16px;

@@ -12,7 +12,7 @@ const Checkout = () => {
   return (
     <div className='checkout'>
         <div className='checkout_left'>
-            <img className='checkout__ad' src={banner}/>
+            <img className='checkout__ad' src={banner} alt=""/>
             <div>
                 <h2 className='checkout__title'>Shopping Cart</h2>
 

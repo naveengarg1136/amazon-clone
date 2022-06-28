@@ -1,46 +1,64 @@
-import './App.css';
-import React, {useEffect} from 'react'
-import Header from './components/Header';
-import Home from './components/Home';
-import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
-import Checkout from './components/Checkout';
-import Login from './components/Login';
-import { auth } from './firebase';
-import { useStateValue } from './contextAPI/StateProvider';
+import "./App.css";
+import React, { useEffect } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Checkout from "./components/Checkout";
+import Login from "./components/Login";
+import { auth } from "./firebase";
+import { useStateValue } from "./contextAPI/StateProvider";
+import Payment from "./components/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+import Order from "./components/Order";
+
+const stripePromise = loadStripe(
+  "pk_test_51LFAhASDcbdXG3CeFbUhJc0y6doovGUEaCVwQ1IS6DLBTSu0V5sdRKOpjAfoCqjbSkRRBT35Xk1w7UnDVrBULLHd00kRQuPkM7"
+);
 
 function App() {
-  const [{basket},dispatch]= useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
 
   useEffect(() => {
-    auth.onAuthStateChanged(authUser=>{
-      console.log("USER is >>>>", authUser);
-      if(authUser){
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
         dispatch({
           type: "SET_USER",
-          user: authUser
-        })
-      }else{
+          user: authUser,
+        });
+      } else {
         dispatch({
           type: "SET_USER",
-          user: null
-        })
+          user: null,
+        });
       }
-    })
-  }, [])
-  
+    });
+  }, []);
 
   return (
     <Router>
-    <div className="App">
-      
-      
-      <Routes>
-      <Route path = "/" element={[ <Header/>,<Home />]} />
-      <Route path="/checkout" element={[ <Header/>,<Checkout/>]} />
-      <Route path = "/login" element={<Login />} />
-      
-      </Routes>
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={[<Header />, <Home />]} />
+          <Route path="/checkout" element={[<Header />, <Checkout />]} />
+          <Route path="/order" element={[<Header />, <Order />]} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/payment"
+            element={[
+              <Header />,
+              <Elements stripe={stripePromise}>
+                <Payment />
+              </Elements>,
+            ]}
+          />
+        </Routes>
+      </div>
     </Router>
   );
 }
