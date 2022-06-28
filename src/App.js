@@ -15,7 +15,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import Order from "./components/Order";
+import Orders from "./components/Orders";
 
 const stripePromise = loadStripe(
   "pk_test_51LFAhASDcbdXG3CeFbUhJc0y6doovGUEaCVwQ1IS6DLBTSu0V5sdRKOpjAfoCqjbSkRRBT35Xk1w7UnDVrBULLHd00kRQuPkM7"
@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={[<Header />, <Home />]} />
           <Route path="/checkout" element={[<Header />, <Checkout />]} />
-          <Route path="/order" element={[<Header />, <Order />]} />
+          <Route path="/order" element={[<Header />, <Orders />]} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/payment"

@@ -7,7 +7,7 @@ import { getBasketTotal } from "../contextAPI/reducer";
 import CheckoutProduct from "./CheckoutProduct";
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../firebase.js";
-import { CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -46,8 +46,6 @@ const Payment = () => {
         },
       })
       .then(({ paymentIntent }) => {
-        
-        
         // save data in firebase database
         db.collection("users")
           .doc(user?.uid)
@@ -59,7 +57,7 @@ const Payment = () => {
             created: paymentIntent.created,
           });
 
-          // Because thing went smooth
+        // Because thing went smooth
         setProceesing(false);
         setError(null);
         setSuccessed(true);
@@ -128,14 +126,14 @@ const Payment = () => {
                 <CurrencyFormat
                   renderText={(value) => (
                     <>
-                      <h3>Order Total: {value}</h3>
+                      <h4>Order Total: {value}</h4>
                     </>
                   )}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"₹"}
+                  prefix={"₹ "}
                 />
               </div>
 

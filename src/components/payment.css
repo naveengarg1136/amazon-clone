@@ -27,3 +27,21 @@
 .payment__address {
   flex: 0.8;
 }
+.payment__details > form {
+  max-width: 400px;
+}
+.payment__price__container > h4 {
+  padding: 8px;
+  /* margin: 10px; */
+}
+.payment__details > form > button {
+  align-self: center;
+  background: #f0c14b;
+  border-radius: 7px;
+  width: 140px;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+}

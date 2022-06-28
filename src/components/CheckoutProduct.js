@@ -5,7 +5,7 @@ import star from "../image/rating samll start2.png";
 import blankStar from "../image/Blankrating.png";
 
 function CheckoutProduct(props) {
-  const { id, title, image, price, rating } = props;
+  const { id, title, image, price, rating, hideButton } = props;
   const [{ basket }, dispatch] = useStateValue();
 
   const removeFrombasket = () => {
@@ -36,7 +36,9 @@ function CheckoutProduct(props) {
               <img src={blankStar} alt="" />
             ))}
         </div>
-        <button onClick={removeFrombasket}>Remove from Cart</button>
+        {!  hideButton && (
+          <button onClick={removeFrombasket}>Remove from Cart</button>
+        )}
       </div>
     </div>
   );
