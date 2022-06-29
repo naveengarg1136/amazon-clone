@@ -3,6 +3,7 @@ import { useStateValue } from "../contextAPI/StateProvider";
 import "./product.css";
 import star from "../image/rating samll start2.png";
 import blankStar from "../image/Blankrating.png";
+import Price from "./Price";
 
 const Product = (props) => {
   const { id, title, image, price, rating } = props;
@@ -39,8 +40,7 @@ const Product = (props) => {
             ))}
         </div>
         <p className="product__price">
-          <small>₹ </small>
-          <strong>{price}</strong>
+          <Price amount={price} />
         </p>
         <button onClick={addToBasket}>Add to Cart</button>
       </div>

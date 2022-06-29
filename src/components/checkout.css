@@ -1,28 +1,30 @@
 .checkout {
   display: flex;
   padding: 10px;
+
   height: max-content;
 }
 .checkout_left {
   display: flex;
   flex-direction: column;
   width: 75%;
-  margin: 10px;
+  margin: 0px 10px;
   background-color: white;
 }
 .checkout__title {
-  margin: 10px;
-  padding: 10px;
+  margin: 0px 50px;
+  padding-bottom: 10px;
   border-bottom: 1px solid lightgrey;
 }
 .checkout__right {
   flex: 1;
-  margin: 10px;
+  margin: 0px 10px;
   background-color: white;
 }
 .checkout__ad {
-  width: 96%;
-  margin: 10px;
-  padding: 10px;
+  width: 100%;
+  height: 100px;
+  margin: 5px;
+  padding: 5px;
   object-fit: contain;
 }

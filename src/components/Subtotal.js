@@ -11,7 +11,7 @@ function Subtotal() {
 
   return (
     <div className="subtotal">
-      <h2>Hello, {user.email}</h2>
+      <h2>Hello, {user ? user.email : "Guest"}</h2>
       <CurrencyFormat
         renderText={(value) => (
           <>

@@ -3,6 +3,7 @@ import { useStateValue } from "../contextAPI/StateProvider";
 import "./checkoutProduct.css";
 import star from "../image/rating samll start2.png";
 import blankStar from "../image/Blankrating.png";
+import Price from "./Price";
 
 function CheckoutProduct(props) {
   const { id, title, image, price, rating, hideButton } = props;
@@ -21,8 +22,7 @@ function CheckoutProduct(props) {
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>
         <p className="checkoutProduct__price">
-          <small>₹ </small>
-          <strong>{price}</strong>
+          <Price amount={price} />
         </p>
         <div className="checkoutProduct__rating">
           {Array(rating)
@@ -36,7 +36,7 @@ function CheckoutProduct(props) {
               <img src={blankStar} alt="" />
             ))}
         </div>
-        {!  hideButton && (
+        {!hideButton && (
           <button onClick={removeFrombasket}>Remove from Cart</button>
         )}
       </div>

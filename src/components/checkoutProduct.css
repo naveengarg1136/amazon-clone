@@ -22,12 +22,24 @@
   object-fit: contain;
   width: 180px;
   height: 180px;
+  margin-left: 10px;
 }
 .checkoutProduct__rating {
   display: flex;
   height: 13px;
 }
 .checkoutProduct__title {
-  font-size: 16px;
+  margin-top: 12px;
   font-weight: 600;
+  font-size: 17px;
+}
+.checkoutProduct__price > strong {
+  font-size: 17;
+
+  font-weight: 400;
+  color: #b12704 !important;
+
+  font-style: normal !important;
+  text-transform: none !important;
+  text-decoration: none !important;
 }
